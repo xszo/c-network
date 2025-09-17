@@ -83,8 +83,6 @@ node:
   - { name: Node, type: test, list: =xx }
   - { name: Node0, type: static, list: =xx }
   - { name: Node1, type: static, list: =xx }
-  - { name: Node2, type: static, list: =xx }
-  - { name: Node3, type: static, list: =xx }
   - { name: CN, type: test, list: =cn }
   - { name: DE, type: test, list: =de }
   - { name: FR, type: test, list: =fr }
