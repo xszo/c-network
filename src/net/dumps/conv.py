@@ -7,6 +7,7 @@ def proxy(out) -> None:
             x + "\n"
             for x in [
                 "[custom]",
+                #
                 "enable_rule_generator=true",
                 "overwrite_original_rules=true",
                 "ruleset=DIRECT,[]FINAL",
@@ -27,8 +28,6 @@ def proxy(out) -> None:
                 "sssub_rule_base=" + EMPTY,
                 "surfboard_rule_base=" + EMPTY,
                 "surge_rule_base=" + EMPTY,
-                #
-                "remove_old_emoji=false",
             ]
         ]
     )

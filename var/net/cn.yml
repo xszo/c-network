@@ -6,7 +6,7 @@ tar:
   - shadowrocket
 route:
   - id: ww
-    node: { name: Node, type: test, list: =xx }
+    node: { id: tw }
     filter: [type: main, use: world]
   - id: cn
     node: { id: direct }

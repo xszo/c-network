@@ -17,17 +17,13 @@ def profile(out, loc: dict) -> None:
     out.writelines(
         [
             "[General]\n",
-            "#!include " + loc["base"],
-            "\n\n",
-            "[Proxy]\n",
+            "#!include " + loc["base"] + "\n",
+            "\n[Proxy]\n",
             "#!include proxy.conf\n",
-            "\n",
-            "[Proxy Group]\n",
-            "#!include " + loc["base"],
-            "\n\n",
-            "[Rule]\n",
-            "#!include " + loc["base"],
-            "\n",
+            "\n[Proxy Group]\n",
+            "#!include " + loc["base"] + "\n",
+            "\n[Rule]\n",
+            "#!include " + loc["base"] + "\n",
         ]
     )
 
@@ -45,7 +41,7 @@ def base(out, loc: dict) -> None:
         "[General]",
         "loglevel = warning",
         "wifi-assist = true",
-        # "internet-test-url = " + __src["misc"]["test"],
+        "internet-test-url = " + __src["misc"]["test"],
         "proxy-test-url = " + __src["misc"]["test"],
         "proxy-test-udp = " + __src["misc"]["t-dns"],
     ]
@@ -89,8 +85,12 @@ def base(out, loc: dict) -> None:
 
     res.extend(
         [
-            "DOMAIN-SET, " + item[2] + ", " + __var["map-node"][item[3]]
-            for item in __src["filter"]["dn"]["ds"]
+            "RULE-SET, "
+            + item[2]
+            + ", "
+            + __var["map-node"][item[3]]
+            + ", no-resolve, extended-matching"
+            for item in __src["filter"]["dn"]["surge"]
             if item[0] in set([1, 2])
         ]
     )
