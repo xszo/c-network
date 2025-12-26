@@ -1,4 +1,4 @@
-from ...ren import EMPTY
+from ..env import REMOTE_URI_NULL
 
 
 def proxy(out) -> None:
@@ -19,15 +19,15 @@ def proxy(out) -> None:
                 "rename=^(JMS-\\d+).(c\\d+s5)\\..*@$1 $2 NL",
                 "rename=^(JMS-\\d+).(c\\d+s\\d+)\\..*@$1 $2",
                 #
-                "clash_rule_base=" + EMPTY,
-                "loon_rule_base=" + EMPTY,
-                "mellow_rule_base=" + EMPTY,
-                "quan_rule_base=" + EMPTY,
-                "quanx_rule_base=" + EMPTY,
-                "singbox_rule_base=" + EMPTY,
-                "sssub_rule_base=" + EMPTY,
-                "surfboard_rule_base=" + EMPTY,
-                "surge_rule_base=" + EMPTY,
+                "clash_rule_base=" + REMOTE_URI_NULL,
+                "loon_rule_base=" + REMOTE_URI_NULL,
+                "mellow_rule_base=" + REMOTE_URI_NULL,
+                "quan_rule_base=" + REMOTE_URI_NULL,
+                "quanx_rule_base=" + REMOTE_URI_NULL,
+                "singbox_rule_base=" + REMOTE_URI_NULL,
+                "sssub_rule_base=" + REMOTE_URI_NULL,
+                "surfboard_rule_base=" + REMOTE_URI_NULL,
+                "surge_rule_base=" + REMOTE_URI_NULL,
             ]
         ]
     )

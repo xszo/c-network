@@ -1,6 +1,6 @@
 from ..lib import net
-from . import ren
 from .dumps import clash, clash_conv, conv, quantumult, shadowrocket, surge
+from .env import EXT_QUANTUMULT_PARSER, PATH_OUT, URI_NET
 
 # Var
 __src = {}
@@ -9,9 +9,7 @@ __var = {"once": set()}
 
 # Init
 def init() -> None:
-    ren.PATH_OUT.mkdir(parents=True, exist_ok=True)
-    ren.PATH_OUT_SURGE.mkdir(parents=True, exist_ok=True)
-    ren.PATH_OUT_CLASH.mkdir(parents=True, exist_ok=True)
+    PATH_OUT.mkdir(parents=True, exist_ok=True)
 
 
 def dump(lsrc: dict) -> None:
@@ -20,7 +18,7 @@ def dump(lsrc: dict) -> None:
         return
     var = lsrc.pop("ref")
     if var["id"] != "":
-        var["id"] = "+" + var["id"]
+        var["id"] = "-" + var["id"]
     __src = lsrc
 
     if "quantumult" in var["tar"]:
@@ -37,44 +35,42 @@ def __quantumult(alia: str) -> None:
     quantumult.let(__src)
 
     with open(
-        ren.PATH_OUT / ("quantumult" + alia + ".conf"),
+        PATH_OUT / ("quantumult" + alia + ".conf"),
         "tw",
         encoding="utf-8",
     ) as out:
         quantumult.profile(
             out,
             {
-                "parse": ren.URI_NET + "quantumult-parser.js",
+                "parse": URI_NET + "quantumult-parser.js",
             },
         )
 
     if not "qp" in __var["once"]:
         __var["once"].add("qp")
         net.download(
-            ren.EXT_QUANTUMULT_PARSER,
-            ren.PATH_OUT / "quantumult-parser.js",
+            EXT_QUANTUMULT_PARSER,
+            PATH_OUT / "quantumult-parser.js",
         )
 
 
 def __clash(alia: str) -> None:
     clash.let(__src)
 
-    with open(
-        ren.PATH_OUT_CLASH / ("profile" + alia + ".yml"), "tw", encoding="utf-8"
-    ) as out:
+    with open(PATH_OUT / ("clash" + alia + ".yml"), "tw", encoding="utf-8") as out:
         clash.config(out)
 
     clash_conv.let(__src)
 
     with open(
-        ren.PATH_OUT_CLASH / ("conv" + alia + ".conf"),
+        PATH_OUT / ("clash-conv" + alia + ".conf"),
         "tw",
         encoding="utf-8",
     ) as out:
-        clash_conv.config(out, {"yml": ren.URI_CLASH + "conv-base" + alia + ".yml"})
+        clash_conv.config(out, {"yml": URI_NET + "clash-conv-base" + alia + ".yml"})
 
     with open(
-        ren.PATH_OUT_CLASH / ("conv-base" + alia + ".yml"),
+        PATH_OUT / ("clash-conv-base" + alia + ".yml"),
         "tw",
         encoding="utf-8",
     ) as out:
@@ -85,32 +81,32 @@ def __surge(alia: str) -> None:
     surge.let(__src)
 
     with open(
-        ren.PATH_OUT_SURGE / ("base" + alia + ".conf"),
+        PATH_OUT / ("surge-base" + alia + ".conf"),
         "tw",
         encoding="utf-8",
     ) as out:
-        surge.base(out, {"up": ren.URI_SURGE + "base" + alia + ".conf"})
+        surge.base(out, {"up": URI_NET + "surge-base" + alia + ".conf"})
 
     if not "sp" in __var["once"]:
         __var["once"].add("sp")
         with open(
-            ren.PATH_OUT_SURGE / "proxy.conf",
+            PATH_OUT / "surge-proxy.conf",
             "tw",
             encoding="utf-8",
         ) as out:
             surge.proxy(out)
 
     with open(
-        ren.PATH_OUT_SURGE / ("profile" + alia + ".conf"),
+        PATH_OUT / ("surge" + alia + ".conf"),
         "tw",
         encoding="utf-8",
     ) as out:
-        surge.profile(out, {"base": "base" + alia + ".conf"})
+        surge.profile(out, {"base": "surge-base" + alia + ".conf"})
 
     if not "sc" in __var["once"]:
         __var["once"].add("sc")
         with open(
-            ren.PATH_OUT / "conv.conf",
+            PATH_OUT / "conv.conf",
             "tw",
             encoding="utf-8",
         ) as out:
@@ -121,13 +117,13 @@ def __shadowrocket(alia: str) -> None:
     shadowrocket.let(__src)
 
     with open(
-        ren.PATH_OUT / ("shadowrocket" + alia + ".conf"),
+        PATH_OUT / ("shadowrocket" + alia + ".conf"),
         "tw",
         encoding="utf-8",
     ) as out:
         shadowrocket.config(
             out,
             {
-                "up": ren.URI_NET + "shadowrocket" + alia + ".conf",
+                "up": URI_NET + "shadowrocket" + alia + ".conf",
             },
         )

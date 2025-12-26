@@ -1,5 +1,8 @@
-__pycache__
 .DS_Store
-/out
-/tmp
+desktop.ini
+
+__pycache__
+
 /usr
+/tmp
+/out

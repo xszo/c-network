@@ -1,30 +1,43 @@
-# xszo/et-gen
+# xszo/er
+
+Remix of Etc.
 
 ## About
 
-`git switch main;  ./run -i;`
-
 Release in `out/` on
-[![jsdelivr](https://data.jsdelivr.com/v1/package/gh/xszo/etc/badge)](https://www.jsdelivr.com/package/gh/xszo/etc)
-.
+<https://xszo.github.io/er/>
 
-Code in `run` `src/` `var/` on  
-  <https://github.com/xszo/et-gen/tree/main>
+Code in `run`, `src/`, `var/` on  
+  <https://github.com/xszo/er/tree/main>
 
 Documents in `doc/` on  
-  <https://github.com/xszo/et-gen/wiki>
+  <https://github.com/xszo/er/wiki>
+
+## Using
+
+`git switch main;`
+
+`./run -ig;`
+
+Production
+
+`python 3.12`, `pyyaml`, `requests`
+
+Development
+
+`prettier`, `pip pylint`, `pip black`, `pip isort`
 
 ## External
 
-- doc/    _GNU GPL 3.0_ & _CC BY-SA 4.0_  
-  <https://github.com/xszo/et-gen/wiki>
-- out/(surge|clash)/filter+\*.txt  
+- `doc/`  *GNU GPL 3.0* & _CC BY-SA 4.0_  
+  <https://github.com/xszo/er/wiki>
+- `out/rule/*-dn-*.txt`  *MIT*  
   <https://github.com/v2fly/domain-list-community>
-- out/(surge|clash)/filter+block.txt  
+- `out/rule/block-dn-*.txt`  *GNU GPL 3.0*  
   <https://github.com/AdguardTeam/AdGuardSDNSFilter>
-- out/(surge|clash)/filter+world.txt  
+- `out/rule/world-dn-*.txt`  *GNU LGPL 2.1*  
   <https://github.com/gfwlist/gfwlist>
-- out/network/quantumult-parser.js  
+- `out/net/quantumult-parser.js`  
   <https://github.com/KOP-XIAO/QuantumultX>
 
 ## LICENSE

@@ -1,4 +1,3 @@
 [submodule "doc"]
 	path = doc
-	url = https://github.com/xszo/et-gen.wiki
-	branch = master
+	url = https://github.com/xszo/er.wiki

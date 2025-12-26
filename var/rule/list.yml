@@ -1,25 +1,24 @@
 # output list
 list:
   # id, list below
-  - cn r-cn vlccn
-  - jp r-jp vlcjp
-  - tw r-tw vlctw
-  - us r-us vlcus
+  - cn r-cn vlcn
+  - jp r-jp vljp
+  - tw r-tw vltw
+  - us r-us vlus
   - >-
-    world
+    ww
     -cn -jp -tw -us
-    world vlcworld gfw
+    world vlworld gfwlist
   - >-
     block
-    adguard vlcblock
+    adguard vlblock
 
 # V2fly domain List Community
-# vlc{id}
 vlc:
   # id list
-  cn:
+  vlcn:
     - geolocation-cn
-  jp:
+  vljp:
     - 5ch
     - abema
     - cygames
@@ -29,16 +28,16 @@ vlc:
     - niconico
     - pixiv
     - projectsekai
-  tw:
+  vltw:
     - 18comic
     - bahamut
     - viu
-  us:
+  vlus:
     - ehentai
-  world:
+  vlworld:
     - apple
     - geolocation-!cn
-  block:
+  vlblock:
     - category-ads-all
     - category-httpdns-cn
 
@@ -50,25 +49,20 @@ get:
     pre: [b64]
     # use regular expression to convert into sublist
     reg:
-      gfw:
+      gfwlist:
         # match pattern, expand pattern
-        - ^\=bs\\=dm\\=ed\  .\1
-        - ^\=bn\\=dm\\=ed\  \1
+        - d  ^\=bs\\=dn\\=ed\  .\1
+        - d  ^\=bn\\=dn\\=ed\  \1
 
   - uri: https://filters.adtidy.org/ios/filters/15.txt
     pre: []
     reg:
       adguard:
-        - ^\=bs\\=dn\\=ed\  .\1
-        - ^\=bs\\=dl\\=ed\  .\1*
-        - ^\=bn\\=dn\\=ed\  \1
-        - ^\=bn\\=dl\\=ed\  \1*
+        - d  ^\=bs\\=dn\\=ed\  .\1
+        - d  ^\=bn\\=dn\\=ed\  \1
 
 # variables refered with '\=name\'
 var:
   bs: (?:\|\||\.)
   bn: (?:\|?|\|?[a-z]*://)
-  ed: (?:$|\^|\$|/|%2F)
-  dn: ((?:[a-z0-9\*](?:[a-z0-9\-\*]*[a-z0-9\*])?\.)+(?:[a-z]+|xn--[a-z0-9]+))
-  dl: ((?:[a-z0-9\*](?:[a-z0-9\-\*]*[a-z0-9\*])?\.)+)\*?
-  dm: ((?:[a-z0-9](?:[a-z0-9\-]*[a-z0-9])?\.)+(?:[a-z]+|xn--[a-z0-9]+)?)
+  ed: (?:$|\^|/|%2F)

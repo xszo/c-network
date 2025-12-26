@@ -3,13 +3,22 @@ from copy import deepcopy
 import yaml
 
 from ..lib import var
-from . import ren
+from .env import (
+    INT,
+    NAME_CLASH,
+    NAME_DOMAIN,
+    NAME_IP,
+    NAME_SURGE,
+    PATH_VAR_REX,
+    URI,
+    ZONE_RULE,
+)
 
 # Var
 res = {}
 __src = {}
 __var = {"var": {}}
-with open(ren.PATH_VAR_REX, "tr", encoding="utf-8") as file:
+with open(PATH_VAR_REX, "tr", encoding="utf-8") as file:
     __var["rex"] = yaml.safe_load(file)
 
 
@@ -21,7 +30,7 @@ def base(araw: dict) -> None:
     # load common
     __src["misc"].update(
         {
-            "interval": ren.INT,
+            "interval": INT,
         }
     )
     # load sections
@@ -150,7 +159,8 @@ def __load_node() -> None:
 
 # get filter content from file and optimize
 def __load_filter() -> None:
-    ref = var.get("filter-ref")
+    var.zone(ZONE_RULE)
+    ref = var.gets()
     tmp_dn = {"surge": [], "clash": []}
     tmp_ip = {"surge": [], "clash": []}
 
@@ -160,12 +170,12 @@ def __load_filter() -> None:
 
         elif item["type"] == "use":
             loc = item["use"]
-            if loc in ref["list"]["dn"]:
+            if loc + "-" + NAME_SURGE in ref[NAME_DOMAIN].keys():
                 tmp_dn["surge"].append(
                     (
                         1,
                         loc,
-                        ren.URI + ref["dn"]["surge-" + loc],
+                        URI + "rule/" + ref[NAME_DOMAIN][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )
@@ -173,16 +183,16 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        ren.URI + ref["dn"]["clash-" + loc],
+                        URI + "rule/" + ref[NAME_DOMAIN][loc + "-" + NAME_CLASH],
                         item["node"],
                     )
                 )
-            if loc in ref["list"]["ip"]:
+            if loc + "-" + NAME_SURGE in ref[NAME_IP].keys():
                 tmp_ip["surge"].append(
                     (
                         1,
                         loc,
-                        ren.URI + ref["ip"]["surge-" + loc],
+                        URI + "rule/" + ref[NAME_IP][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )
@@ -190,7 +200,7 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        ren.URI + ref["ip"]["clash-" + loc],
+                        URI + "rule/" + ref[NAME_IP][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )
