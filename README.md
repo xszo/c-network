@@ -1,17 +1,14 @@
 # xszo/er
 
-Remix of Etc.
+ER, Remix of Etc.
 
 ## About
 
-Release in `out/` on
-<https://xszo.github.io/er/>
+Documents in `doc/` on <https://github.com/xszo/er/wiki>
 
-Code in `run`, `src/`, `var/` on  
-  <https://github.com/xszo/er/tree/main>
+Release in `out/` on <https://xszo.github.io/er/>
 
-Documents in `doc/` on  
-  <https://github.com/xszo/er/wiki>
+Code in `run`, `src/`, `var/` on <https://github.com/xszo/er/tree/main>
 
 ## Using
 

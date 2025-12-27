@@ -12,6 +12,7 @@ from .env import (
     NAME_SURGE,
     PATH_OUT,
     ZONE,
+    REMOTE_URI,
 )
 
 var.zone(ZONE)
@@ -57,14 +58,14 @@ class dump:
                         for x in val
                     ]
                 )
-            res[key + "-" + NAME_SURGE] = loc
+            res[key + "-" + NAME_SURGE] = REMOTE_URI + loc
             # dump clash
             loc = key + "-" + NAME_DOMAIN + "-" + NAME_CLASH + ".yml"
             with open(PATH_OUT / loc, "tw", encoding="utf-8") as file:
                 yaml.safe_dump(
                     {"payload": ["+" + x if x[0] == "." else x for x in val]}, file
                 )
-            res[key + "-" + NAME_CLASH] = loc
+            res[key + "-" + NAME_CLASH] = REMOTE_URI + loc
         return res
 
     def __do_ip(self) -> dict:
@@ -89,10 +90,10 @@ class dump:
             if NAME_IPASN in val:
                 dat.extend(["IP-ASN," + str(x) + "\n" for x in val[NAME_IPASN]])
             if NAME_IPGEO in val:
-                dat.extend(["GEOIP," + x + "\n" for x in val[NAME_IPGEO]])
+                dat.extend(["GEOIP," + x.upper() + "\n" for x in val[NAME_IPGEO]])
             # write file
             loc = key + "-" + NAME_IP + "-" + NAME_SURGE + ".txt"
             with open(PATH_OUT / loc, "tw", encoding="utf-8") as file:
                 file.writelines(dat)
-            res[key + "-" + NAME_SURGE] = loc
+            res[key + "-" + NAME_SURGE] = REMOTE_URI + loc
         return res

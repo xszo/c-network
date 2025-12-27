@@ -1,6 +1,16 @@
 domain:
   - cn
 
+  # gov
+  - e-sscard.com
+  # china mobile
+  - 3gppnetwork.org
+
+  # service
+  - samsungcloudcn.com
+  # alibaba
+  - alipay-eco.com
+
 ipgeo:
   - cn
   - hk

@@ -7,12 +7,9 @@ __zone = "var"
 def zone(use: str) -> str:
     """set var namespace"""
     global __zone
-    if isinstance(use, str):
-        __zone = use
-        if __zone not in __var:
-            __var[__zone] = {}
-    else:
-        __zone = "var"
+    __zone = use
+    if __zone not in __var:
+        __var[__zone] = {}
     return __zone
 
 

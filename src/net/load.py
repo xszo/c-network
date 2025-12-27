@@ -175,7 +175,7 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        URI + "rule/" + ref[NAME_DOMAIN][loc + "-" + NAME_SURGE],
+                        ref[NAME_DOMAIN][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )
@@ -183,7 +183,7 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        URI + "rule/" + ref[NAME_DOMAIN][loc + "-" + NAME_CLASH],
+                        ref[NAME_DOMAIN][loc + "-" + NAME_CLASH],
                         item["node"],
                     )
                 )
@@ -192,7 +192,7 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        URI + "rule/" + ref[NAME_IP][loc + "-" + NAME_SURGE],
+                        ref[NAME_IP][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )
@@ -200,7 +200,7 @@ def __load_filter() -> None:
                     (
                         1,
                         loc,
-                        URI + "rule/" + ref[NAME_IP][loc + "-" + NAME_SURGE],
+                        ref[NAME_IP][loc + "-" + NAME_SURGE],
                         item["node"],
                     )
                 )

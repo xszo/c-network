@@ -19,6 +19,7 @@ PATH_VAR = __env.PATH_VAR_RULE
 PATH_VAR_META = PATH_VAR / "list.yml"
 PATH_TMP = __env.PATH_TMP_RULE
 PATH_OUT = __env.PATH_OUT_RULE
+REMOTE_URI = __env.REMOTE_URI_RULE
 
 # getrex.py
 REX_COMMENT = re_c("^\\s*($|#|!)")
