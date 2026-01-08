@@ -2,6 +2,7 @@
 list:
   # id, list below
   - cn r-cn vlcn
+  - chn cn dnsmasqcn
   - jp r-jp vljp
   - tw r-tw vltw
   - us r-us vlus
@@ -29,6 +30,7 @@ vlc:
     - misskey
     - niconico
     - pixiv
+    - projectsekai
     - rakuten
   vltw:
     - 18comic
@@ -57,18 +59,22 @@ rex:
     get:
       gfwlist:
         # match pattern, expand pattern
-        - d  ^\=bs\\=dn\\=ed\  .\1
-        - d  ^\=bn\\=dn\\=ed\  \1
+        - d  ^\=adbgs\\=dn\\=aded\  .\1
+        - d  ^\=adbgn\\=dn\\=aded\  \1
+
+  - url: https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf
+    get:
+      dnsmasqcn:
+        - d  ^server=/\=dn\/[\d\.]+  .\1
 
   - url: https://filters.adtidy.org/ios/filters/15.txt
-    pre: []
     get:
       adguard:
-        - d  ^\=bs\\=dn\\=ed\  .\1
-        - d  ^\=bn\\=dn\\=ed\  \1
+        - d  ^\=adbgs\\=dn\\=aded\  .\1
+        - d  ^\=adbgn\\=dn\\=aded\  \1
 
 # variables refered with '\=name\'
 var:
-  bs: (?:\|\||\.)
-  bn: (?:\|?|\|?[a-z]*://)
-  ed: (?:$|\^|/|%2F)
+  adbgs: (?:\|\||\.)
+  adbgn: (?:\|?|\|?[a-z]*://)
+  aded: (?:$|\^|\$|/|%2F|%2f)

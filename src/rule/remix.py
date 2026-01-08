@@ -85,7 +85,9 @@ class remix:
             res.update(suffix)
             # remove children
             mess = set(
-                x for x in mess if ("." + ".".join(x.split(".")[-i:])) not in suffix
+                x
+                for x in mess
+                if x.count(".") < i or ("." + ".".join(x.split(".")[-i:])) not in suffix
             )
         res.update(mess)
         return res
@@ -99,5 +101,9 @@ class remix:
             )
             # remove children
             suffix = set(x[1:] for x in rm if x[0] == "." and x.count(".") == i)
-            mess = set(x for x in mess if ".".join(x.split(".")[-i:]) not in suffix)
+            mess = set(
+                x
+                for x in mess
+                if x.count(".") < i or ".".join(x.split(".")[-i:]) not in suffix
+            )
         return mess

@@ -3,8 +3,6 @@ domain:
 
   # gov
   - e-sscard.com
-  # china mobile
-  - 3gppnetwork.org
 
   # service
   - samsungcloudcn.com
