@@ -25,7 +25,6 @@ vlc:
     - abema
     - cygames
     - dlsite
-    - dlsite
     - dmm
     - misskey
     - niconico
@@ -41,12 +40,12 @@ vlc:
   vlus:
     - ehentai
   vlworld:
-    - apple
-    - microsoft
     - geolocation-!cn
     - category-porn
+    - apple
+    - microsoft
   vlblock:
-    - category-ads-all
+    - category-ads
     - category-httpdns-cn
 
 # Parse Online list
@@ -59,22 +58,19 @@ rex:
     get:
       gfwlist:
         # match pattern, expand pattern
-        - d  ^\=adbgs\\=dn\\=aded\  .\1
-        - d  ^\=adbgn\\=dn\\=aded\  \1
+        - d  ^\|?\|?\.?(?:[a-z]+://)?\=dn\(?:$|\^|\$|/)  .\1
+        - 4  ^\|?\|?(?:[a-z]+://)?\=i4\(?:$|\^|\$|:|/)  \1/32
 
   - url: https://cdn.jsdelivr.net/gh/felixonmars/dnsmasq-china-list/accelerated-domains.china.conf
     get:
       dnsmasqcn:
-        - d  ^server=/\=dn\/[\d\.]+  .\1
+        - d  ^server=/\=dn\/  .\1
 
   - url: https://filters.adtidy.org/ios/filters/15.txt
     get:
       adguard:
-        - d  ^\=adbgs\\=dn\\=aded\  .\1
-        - d  ^\=adbgn\\=dn\\=aded\  \1
+        - d  ^\|?\|?\.?(?:[a-z]+://)?\=dn\(?:$|\^|\$|/)  .\1
+        - 4  ^\|?\|?(?:[a-z]+://)?\=i4\(?:$|\^|\$|:|/)  \1/32
 
 # variables refered with '\=name\'
-var:
-  adbgs: (?:\|\||\.)
-  adbgn: (?:\|?|\|?[a-z]*://)
-  aded: (?:$|\^|\$|/|%2F|%2f)
+var: {}
