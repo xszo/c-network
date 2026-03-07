@@ -9,9 +9,9 @@ from .env import (
     VLC_DATA,
     VLC_REPO_PATH,
     VLC_REPO_URL,
+    VLC_REX_COM,
     VLC_REX_INCL,
     VLC_REX_RULE,
-    VLC_REX_COM,
 )
 
 

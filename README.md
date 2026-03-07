@@ -18,8 +18,6 @@ Code in `run`, `src/`, `var/` on <https://github.com/xszo/c-network>
   <https://github.com/v2fly/domain-list-community>
 - `out/rule/block-dn-*.txt`  *GNU GPL 3.0*  
   <https://github.com/AdguardTeam/AdGuardSDNSFilter>
-- `out/rule/world-dn-*.txt`  *GNU LGPL 2.1*  
-  <https://github.com/gfwlist/gfwlist>
 - `out/net/quantumult-parser.js`  
   <https://github.com/KOP-XIAO/QuantumultX>
 

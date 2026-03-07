@@ -43,7 +43,7 @@ VLC_REPO_URL = "https://github.com/v2fly/domain-list-community"
 VLC_REPO_PATH = PATH_TMP / "vlc"
 VLC_DATA = VLC_REPO_PATH / "data"
 VLC_REX_COM = re_c("#.*$")
-VLC_REX_INCL = re_c('^include:(.+)$')
+VLC_REX_INCL = re_c("^include:(.+)$")
 VLC_REX_RULE = (
     (
         re_c(
