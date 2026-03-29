@@ -48,7 +48,7 @@ def base(out, loc: dict) -> None:
 
     if "dns" in __src["misc"]:
         res.append("hijack-dns = *:53")
-        res.append("dns-server = " + ", ".join(__src["misc"]["dns"]))
+        res.append("dns-server = system, " + ", ".join(__src["misc"]["dns"]))
     line = "encrypted-dns-server = "
     if "doh" in __src["misc"]:
         line += ", ".join(__src["misc"]["doh"])

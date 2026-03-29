@@ -14,11 +14,13 @@ Code in `run`, `src/`, `var/` on <https://github.com/xszo/c-network>
 
 - `doc/`  *GNU GPL 3.0* & _CC BY-SA 4.0_  
   <https://github.com/xszo/c-network/wiki>
-- `out/rule/*-dn-*.txt`  *MIT*  
+- `out/rule/*-dn-*.txt` V2fly *MIT*  
   <https://github.com/v2fly/domain-list-community>
-- `out/rule/block-dn-*.txt`  *GNU GPL 3.0*  
+- `out/rule/world-dn-*.txt` GFWlist *GNU LGPL 2.1*  
+  <https://github.com/gfwlist/gfwlist>
+- `out/rule/block-dn-*.txt` AdGuard *GNU GPL 3.0*  
   <https://github.com/AdguardTeam/AdGuardSDNSFilter>
-- `out/net/quantumult-parser.js`  
+- `out/net/quantumult-parser.js` XIAO  
   <https://github.com/KOP-XIAO/QuantumultX>
 
 ## LICENSE

@@ -17,10 +17,10 @@ class dump:
             "proxy-test-url = " + self.__src["misc"]["test"],
         ]
         if "dns" in self.__src["misc"]:
-            line = "dns-server = "
+            line = "dns-server = system, "
             for item in self.__src["misc"]["dns"]:
-                line += item + ", "
-            raw.append(line[:-2])
+                line += ", " + item
+            raw.append(line)
         if "doh" in self.__src["misc"]:
             raw.append("doh-server = " + self.__src["misc"]["doh"])
 
