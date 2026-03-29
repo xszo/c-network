@@ -8,7 +8,7 @@ list:
   - >-
     world
     -cn -jp -tw -us
-    r-world vlworld
+    r-world vlworld gfwlist
   - >-
     block
     adguard vlblock
@@ -56,8 +56,15 @@ rex:
     # use regular expression to convert into sublist
     get:
       adguard:
-        # match pattern, expand pattern
-        - d  ^\|?\|?\.?(?:[a-z]+://)?\=dn\(?:$|\^|\$|/)  .\1
+        # type, match pattern, expand pattern
+        - d  ^\|?\|?(?:[a-z]+://)?\.?\=dn\(?:$|\^|\$|/)  .\1
+        - 4  ^\|?\|?(?:[a-z]+://)?\=i4\(?:$|\^|\$|:|/)  \1/32
+
+  - url: https://cdn.jsdelivr.net/gh/gfwlist/gfwlist/gfwlist.txt
+    pre: [b64]
+    get:
+      gfwlist:
+        - d  ^\|?\|?(?:[a-z]+://)?\.?\=dn\(?:$|\^|\$|/)  .\1
         - 4  ^\|?\|?(?:[a-z]+://)?\=i4\(?:$|\^|\$|:|/)  \1/32
 
 # variables refered with '\=name\'

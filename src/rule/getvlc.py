@@ -16,13 +16,12 @@ from .env import (
 
 
 class getvlc:
-    __repo: repo = None
+    __repo: repo
     __data: dict[str, list[str]] = {}
     __no: list[str] = []
 
     def __init__(self) -> None:
-        self.__repo = repo(VLC_REPO_PATH)
-        self.__repo.clone(VLC_REPO_URL)
+        self.__repo = repo(VLC_REPO_PATH, VLC_REPO_URL)
         self.__repo.pull()
         if self.__repo.err:
             print("ERR src/rule/getvlc.py repo")

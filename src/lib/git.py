@@ -1,17 +1,22 @@
 from pathlib import Path
 from subprocess import run
 
+from ..env import SYS_TXTCODE
+
 
 class repo:
     """git repo"""
 
     err: bool = True
-    __path: Path = Path()
-    __link: str = ""
+    __path: Path
+    __link: str
 
-    def __init__(self, loc: Path) -> None:
+    def __init__(self, loc: Path, rmt: str = "") -> None:
         """check if is repo"""
         self.__path = loc.resolve()
+        if len(rmt) > 8:
+            self.__link = rmt
+
         if self.__path.exists():
             if self.__path.is_dir():
                 info = run(
@@ -22,31 +27,43 @@ class repo:
                 )
                 if (
                     info.returncode == 0
-                    and info.stdout.decode() == str(self.__path) + "\n"
+                    and info.stdout.decode(SYS_TXTCODE) == str(self.__path) + "\n"
                 ):
-                    self.err = False
+                    if self.__link:
+                        info = run(
+                            ["git", "remote", "get-url", "origin"],
+                            cwd=self.__path,
+                            check=True,
+                            capture_output=True,
+                        )
+                        if not (
+                            info.returncode == 0
+                            and info.stdout.decode(SYS_TXTCODE) == self.__link
+                        ):
+                            self.err = False
+                    else:
+                        self.err = False
+
         else:
             self.__path.mkdir(parents=True)
+            if self.__link:
+                self.__clone()
+            else:
+                self.__initialize()
             self.err = False
 
-    def clone(self, remote: str) -> None:
-        """clone git repo into loc"""
-        if self.err:
-            return
-        self.__link = remote
-        info = run(
-            ["git", "remote", "get-url", "origin"],
+    def __initialize(self) -> None:
+        """initialize git repo"""
+        run(["git", "init"], cwd=self.__path, check=False)
+
+    def __clone(self) -> None:
+        """clone git repo using link"""
+        run(["rm", "-rf", "{*,.*}"], cwd=self.__path, check=False)
+        run(
+            ["git", "clone", "--depth=1", self.__link, "."],
             cwd=self.__path,
-            check=True,
-            capture_output=True,
+            check=False,
         )
-        if not (info.returncode == 0 and info.stdout.decode() == self.__link + "\n"):
-            run(["rm", "-rf", "{*,.*}"], cwd=self.__path, check=False)
-            run(
-                ["git", "clone", "--depth=1", self.__link, "."],
-                cwd=self.__path,
-                check=False,
-            )
 
     def pull(self) -> None:
         """git pull"""

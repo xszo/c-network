@@ -4,10 +4,11 @@ __var = {"var": {}}
 __zone = "var"
 
 
-def zone(use: str) -> str:
+def zone(use: str = "") -> str:
     """set var namespace"""
-    global __zone
-    __zone = use
+    if use:
+        global __zone
+        __zone = use
     if __zone not in __var:
         __var[__zone] = {}
     return __zone
@@ -28,9 +29,9 @@ def add(key: str, val) -> None:
     __var[__zone][key] = val
 
 
-def adds(ls: dict) -> None:
+def adds(kv: dict) -> None:
     """add all key pairs to shared var"""
-    __var[__zone].update(ls)
+    __var[__zone].update(kv)
 
 
 def pop(key: str):

@@ -1,5 +1,7 @@
 from pathlib import Path
 
+SYS_TXTCODE = "utf-8"
+
 # name
 NAME_NET = "net"
 NAME_RULE = "rule"
