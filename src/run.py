@@ -15,16 +15,14 @@ __arg = __arg_sh.parse_args()
 # run steps
 if __arg.i:
     # init git repo
+    run(["git", "switch", "main"], check=False)
     run(
         ["git", "submodule", "update", "--init", "--recursive", "--remote"], check=False
     )
-    run(["git", "switch", "main"], check=False)
 if __arg.a or __arg.g:
     _rule.run()
     _net.run()
 if __arg.c:
-    # format yaml
-    run(["npx", "prettier", ".", "--write"], check=False)
     # format python
     run(["python", "-m", "isort", ".", "--profile=black"], check=False)
     run(["python", "-m", "black", "."], check=False)

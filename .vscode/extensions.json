@@ -4,6 +4,6 @@
     "ms-python.pylint",
     "ms-python.black-formatter",
     "ms-python.isort",
-    "esbenp.prettier-vscode"
+    "redhat.vscode-yaml"
   ]
 }

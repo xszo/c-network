@@ -24,15 +24,10 @@ def run() -> None:
         vlcer.add(key, val)
     __merge(data, {NAME_DOMAIN: vlcer.get()})
 
-    ls = {}
-    for line in meta["list"]:
-        if len(line := line.split(" ")) > 1:
-            ls[line[0]] = line[1:]
-
     (remixer := remix()).add(data)
-    for k, v in ls.items():
-        remixer.mix(k, v)
-    data = remixer.get(tuple(ls.keys()))
+    for key, val in meta["list"].items():
+        remixer.mix(key, val)
+    data = remixer.get(tuple(meta["list"].keys()))
 
     dump().dump(data)
 

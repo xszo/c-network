@@ -13,11 +13,8 @@
     "diffEditor.ignoreTrimWhitespace": false
   },
   "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": { "source.fixAll": "explicit" }
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": { "source.fixAll": "explicit" }
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
+    "diffEditor.ignoreTrimWhitespace": false
   }
 }

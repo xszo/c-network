@@ -1,17 +1,14 @@
 # output list
 list:
-  # id, list below
-  - cn r-cn vlcn
-  - jp r-jp vljp
-  - tw r-tw vltw
-  - us r-us vlus
-  - >-
-    world
-    -cn -jp -tw -us
-    r-world vlworld gfwlist
-  - >-
-    block
-    adguard vlblock
+  # id, list
+  world: [vlworld, gfwlist]
+  cn: [r-cn, vlcn]
+  jp: [r-jp, vljp]
+  tw: [r-tw, vltw]
+  us: [r-us, vlus]
+  stream: [rstream, vlstream]
+  apple: [rapple, vlapple]
+  block: [adguard, vlblock]
 
 # V2fly domain List Community
 vlc:
@@ -27,6 +24,7 @@ vlc:
     - dmm
     - misskey
     - niconico
+    - nintendo
     - pixiv
     - projectsekai
     - rakuten
@@ -41,8 +39,13 @@ vlc:
   vlworld:
     - geolocation-!cn
     - category-porn
+  vlstream:
+    - disney
+    - hbo
+    - netflix
+    - primevideo
+  vlapple:
     - apple
-    - microsoft
   vlblock:
     - category-ads
     - category-httpdns-cn
