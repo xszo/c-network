@@ -5,22 +5,19 @@ tar:
   - quantumult
   - shadowrocket
 route:
-  - id: vv
-    node: { id: direct }
-    filter: [ { use: apple } ]
   - id: cn
     node: { id: direct }
-    filter: [ { use: cn } ]
+    filter: [ { use: cn }, { use: system } ]
+  - id: tw
+    node: { name: TW, type: test, list: =tw }
+    filter: [ { use: tw }, { use: stream } ]
   - id: jp
     node: { name: JP, type: test, list: =jp }
     filter: [ { use: jp } ]
-  - id: tw
-    node: { name: TW, type: test, list: =tw }
-    filter: [ { use: tw } ]
   - id: us
     node: { name: US, type: test, list: =us }
     filter: [ { use: us } ]
   - id: ww
     node: { id: tw }
-    filter: [ { type: main }, { use: stream }, { use: world } ]
+    filter: [ { use: world }, { type: main } ]
 node: []

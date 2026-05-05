@@ -1,11 +1,13 @@
 ipasn:
-  - 2906 # nflx
+  - 2906 # netflix
+  - 40027 # netflix
+  - 55095 # netflix
   - 11251 # disney
   - 22604 # disney
+  - 23286 # disney
   - 23344 # disney
-  - 23286 # hulu
-  - 2631 # wbd
-  - 23287 # wbd
-  - 5662 # hbo
-  - 43500 # hbo
-  - 50651 # hbo
+  - 2631 # warner
+  - 5662 # warner
+  - 23287 # warner
+  - 43500 # warner
+  - 50651 # warner

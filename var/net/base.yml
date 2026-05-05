@@ -21,17 +21,17 @@ misc:
     - https://223.6.6.6/dns-query
 # routing info
 route:
-  - id: apple
+  - id: system
     node:
       type: static
-      name: Apple
+      name: System
       list: [ -world, -direct, =node ]
     filter:
-      - use: apple
+      - use: system
     icon:
-      sort: 3
+      sort: 1
       emoji: 🏳️‍🌈
-      sf: arrow.forward.system
+      sf: arrow.left.arrow.right.system
   - id: stream
     node:
       type: static
@@ -95,8 +95,8 @@ route:
       name: Default
       list: [ -direct, -reject, =node ]
     filter:
-      - type: main
       - use: world
+      - type: main
     icon:
       sort: 0
       emoji: 🏳️‍🌈
