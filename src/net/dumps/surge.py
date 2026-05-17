@@ -63,9 +63,9 @@ def base(out, loc: dict) -> None:
         if item["type"] == "static":
             line += " = select"
         elif item["type"] == "test":
-            line += ' = smart, policy-priority="\\[2\\]:2;\\[4\\]:4;\\[8\\]:8;"'
+            line += " = smart"
         else:
-            return None
+            return
         if "list" in item:
             for val in item["list"]:
                 if val[0] == "-":
@@ -74,7 +74,9 @@ def base(out, loc: dict) -> None:
                     line += ", " + val
         if "regx" in item:
             line += (
-                ', include-all-proxies=true, policy-regex-filter="' + item["regx"] + '"'
+                ', include-all-proxies=true, include-other-group=Proxy, policy-regex-filter="'
+                + item["regx"]
+                + '"'
             )
         return line
 
