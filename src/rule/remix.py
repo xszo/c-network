@@ -58,7 +58,9 @@ class remix:
             if line in self.__pool_domain:
                 self.__pool_domain[name].update(self.__pool_domain[line])
         # optimize domain
-        self.__pool_domain[name] = self.__domain_minify(self.__pool_domain[name])
+        self.__pool_domain[name] = self.__domain_minify(
+            self.__pool_domain[name]
+        )
         # do exclude
         excl_dn = set()
         for line in excl_ls:
@@ -87,7 +89,8 @@ class remix:
             mess = set(
                 x
                 for x in mess
-                if x.count(".") < i or ("." + ".".join(x.split(".")[-i:])) not in suffix
+                if x.count(".") < i
+                or ("." + ".".join(x.split(".")[-i:])) not in suffix
             )
         res.update(mess)
         return res
@@ -97,7 +100,11 @@ class remix:
         for i in range(1, MAX_DOMAIN_LEVEL):
             # remove parent
             mess.difference_update(
-                set("." + ".".join(x.split(".")[-i:]) for x in rm if x.count(".") >= i)
+                set(
+                    "." + ".".join(x.split(".")[-i:])
+                    for x in rm
+                    if x.count(".") >= i
+                )
             )
             # remove children
             suffix = set(x[1:] for x in rm if x[0] == "." and x.count(".") == i)

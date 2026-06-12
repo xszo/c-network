@@ -65,7 +65,8 @@ class dump:
             loc = key + "-" + NAME_DOMAIN + "-" + NAME_CLASH + ".yml"
             with open(PATH_OUT / loc, "tw", encoding="utf-8") as file:
                 yaml.safe_dump(
-                    {"payload": ["+" + x if x[0] == "." else x for x in val]}, file
+                    {"payload": ["+" + x if x[0] == "." else x for x in val]},
+                    file,
                 )
             res[key + "-" + NAME_CLASH] = REMOTE_URL + loc
             # dump quantumult
@@ -109,19 +110,33 @@ class dump:
             dat_q = []
             # dump surge & quantumult
             if NAME_IPCIDR_V4 in val:
-                dat_s.extend(["IP-CIDR," + x + "\n" for x in val[NAME_IPCIDR_V4]])
-                dat_q.extend(["ip-cidr," + x + ",proxy\n" for x in val[NAME_IPCIDR_V4]])
+                dat_s.extend(
+                    ["IP-CIDR," + x + "\n" for x in val[NAME_IPCIDR_V4]]
+                )
+                dat_q.extend(
+                    ["ip-cidr," + x + ",proxy\n" for x in val[NAME_IPCIDR_V4]]
+                )
             if NAME_IPCIDR_V6 in val:
-                dat_s.extend(["IP-CIDR6," + x + "\n" for x in val[NAME_IPCIDR_V6]])
+                dat_s.extend(
+                    ["IP-CIDR6," + x + "\n" for x in val[NAME_IPCIDR_V6]]
+                )
                 dat_q.extend(
                     ["ip6-cidr," + x + ",proxy\n" for x in val[NAME_IPCIDR_V6]]
                 )
             if NAME_IPASN in val:
-                dat_s.extend(["IP-ASN," + str(x) + "\n" for x in val[NAME_IPASN]])
-                dat_q.extend(["ip-asn," + str(x) + ",proxy\n" for x in val[NAME_IPASN]])
+                dat_s.extend(
+                    ["IP-ASN," + str(x) + "\n" for x in val[NAME_IPASN]]
+                )
+                dat_q.extend(
+                    ["ip-asn," + str(x) + ",proxy\n" for x in val[NAME_IPASN]]
+                )
             if NAME_IPGEO in val:
-                dat_s.extend(["GEOIP," + x.upper() + "\n" for x in val[NAME_IPGEO]])
-                dat_q.extend(["geoip," + x + ",proxy\n" for x in val[NAME_IPGEO]])
+                dat_s.extend(
+                    ["GEOIP," + x.upper() + "\n" for x in val[NAME_IPGEO]]
+                )
+                dat_q.extend(
+                    ["geoip," + x + ",proxy\n" for x in val[NAME_IPGEO]]
+                )
             # write file
             loc = key + "-" + NAME_IP + "-" + NAME_SURGE + ".txt"
             with open(PATH_OUT / loc, "tw", encoding="utf-8") as file:

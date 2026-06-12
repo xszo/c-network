@@ -6,7 +6,7 @@ var: {}
 misc:
   # lag test
   test: http://1.1.1.1/
-  t-dns: nic.com@1.1.1.1
+  t-dns: one.one@1.1.1.1
   # dns over udp
   dns:
     # - 1.1.1.1

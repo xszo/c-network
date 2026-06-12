@@ -18,7 +18,11 @@ MISC = {
     "tcp-concurrent": True,
     "geodata-mode": False,
     "geo-auto-update": True,
-    "profile": {"store-selected": True, "store-fake-ip": True, "tracing": False},
+    "profile": {
+        "store-selected": True,
+        "store-fake-ip": True,
+        "tracing": False,
+    },
     "dns": {
         "enable": True,
         "prefer-h3": True,
@@ -97,7 +101,8 @@ def node(src: dict, res: dict) -> None:
             line["icon"] = item["icon"]["emoji"]
         if "list" in item:
             line["proxies"] = [
-                __var["map-node"][x[1:]] if x[0] == "-" else x for x in item["list"]
+                __var["map-node"][x[1:]] if x[0] == "-" else x
+                for x in item["list"]
             ]
         if "regx" in item:
             line["include-all"] = True

@@ -57,7 +57,9 @@ def __quantumult(alia: str) -> None:
 def __clash(alia: str) -> None:
     clash.let(__src)
 
-    with open(PATH_OUT / ("clash" + alia + ".yml"), "tw", encoding="utf-8") as out:
+    with open(
+        PATH_OUT / ("clash" + alia + ".yml"), "tw", encoding="utf-8"
+    ) as out:
         clash.config(out)
 
     clash_conv.let(__src)
@@ -67,7 +69,9 @@ def __clash(alia: str) -> None:
         "tw",
         encoding="utf-8",
     ) as out:
-        clash_conv.config(out, {"yml": URI_NET + "clash-conv-base" + alia + ".yml"})
+        clash_conv.config(
+            out, {"yml": URI_NET + "clash-conv-base" + alia + ".yml"}
+        )
 
     with open(
         PATH_OUT / ("clash-conv-base" + alia + ".yml"),

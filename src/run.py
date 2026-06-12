@@ -17,12 +17,16 @@ if __arg.i:
     # init git repo
     run(["git", "switch", "main"], check=False)
     run(
-        ["git", "submodule", "update", "--init", "--recursive", "--remote"], check=False
+        ["git", "submodule", "update", "--init", "--recursive", "--remote"],
+        check=False,
     )
 if __arg.a or __arg.g:
     _rule.run()
     _net.run()
 if __arg.c:
     # format python
-    run(["python", "-m", "isort", ".", "--profile=black"], check=False)
+    run(
+        ["python", "-m", "isort", "."],
+        check=False,
+    )
     run(["python", "-m", "black", "."], check=False)

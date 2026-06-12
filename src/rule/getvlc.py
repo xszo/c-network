@@ -59,9 +59,11 @@ class getvlc:
                         if len(line) > 1:
                             a = set(line[1:])
                             if (
-                                len(item["incl"]) > 0 and a.isdisjoint(item["incl"])
+                                len(item["incl"]) > 0
+                                and a.isdisjoint(item["incl"])
                             ) or (
-                                len(item["excl"]) > 0 and not a.isdisjoint(item["excl"])
+                                len(item["excl"]) > 0
+                                and not a.isdisjoint(item["excl"])
                             ):
                                 continue
                         for pat in VLC_REX_RULE:

@@ -23,6 +23,4 @@ INT = __env.REMOTE_INTERVAL
 
 # dump.py
 REMOTE_URI_NULL = __env.REMOTE_URL_NULL
-EXT_QUANTUMULT_PARSER = (
-    "https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js"
-)
+EXT_QUANTUMULT_PARSER = "https://cdn.jsdelivr.net/gh/KOP-XIAO/QuantumultX@master/Scripts/resource-parser.js"

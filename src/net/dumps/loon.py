@@ -71,7 +71,9 @@ class dump:
         )
 
         raw.append("\n[Remote Filter]")
-        self.__var_rex = [item["regx"] for item in self.__src["node"] if "regx" in item]
+        self.__var_rex = [
+            item["regx"] for item in self.__src["node"] if "regx" in item
+        ]
         raw.extend(
             [
                 "Rex" + str(idx) + ' = NameRegex, FilterKey="' + item + '"'

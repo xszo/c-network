@@ -39,8 +39,8 @@ def base(out, loc: dict) -> None:
         "\n",
         #
         "[General]",
-        "loglevel = warning",
-        # "internet-test-url = " + __src["misc"]["test"],
+        # "loglevel = warning",
+        "internet-test-url = " + __src["misc"]["test"],
         "proxy-test-url = " + __src["misc"]["test"],
         "proxy-test-udp = " + __src["misc"]["t-dns"],
     ]
@@ -104,7 +104,9 @@ def base(out, loc: dict) -> None:
         ]
     )
 
-    res.append("FINAL, " + __var["map-node"][__src["filter"]["main"]] + ", dns-failed")
+    res.append(
+        "FINAL, " + __var["map-node"][__src["filter"]["main"]] + ", dns-failed"
+    )
 
     out.writelines([x + "\n" for x in res])
 

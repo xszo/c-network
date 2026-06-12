@@ -16,7 +16,9 @@ def run() -> None:
 
     (rexer := getrex()).add_var(meta["var"])
     for line in meta["rex"]:
-        rexer.add(line["url"], line["get"], pre=line["pre"] if "pre" in line else [])
+        rexer.add(
+            line["url"], line["get"], pre=line["pre"] if "pre" in line else []
+        )
     __merge(data, rexer.get())
 
     vlcer = getvlc()

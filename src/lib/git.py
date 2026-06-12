@@ -27,7 +27,8 @@ class repo:
                 )
                 if (
                     info.returncode == 0
-                    and info.stdout.decode(SYS_TXTCODE) == str(self.__path) + "\n"
+                    and info.stdout.decode(SYS_TXTCODE)
+                    == str(self.__path) + "\n"
                 ):
                     if self.__link:
                         info = run(
