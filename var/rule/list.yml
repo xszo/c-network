@@ -1,14 +1,14 @@
 # output list
 list:
   # id, list
-  world: [ vlworld, gfwlist ]
-  cn: [ r-cn, vlcn ]
-  jp: [ r-jp, vljp ]
-  tw: [ r-tw, vltw ]
-  us: [ r-us, vlus ]
-  system: [ rsystem, vlsystem ]
-  stream: [ rstream, vlstream ]
-  block: [ adguard, vlblock ]
+  world: [vlworld, gfwlist]
+  cn: [r-cn, vlcn]
+  jp: [r-jp, vljp]
+  tw: [r-tw, vltw]
+  us: [r-us, vlus]
+  system: [rsystem, vlsystem]
+  stream: [rstream, vlstream]
+  block: [adguard, vlblock]
 
 # V2fly domain List Community
 vlc:
@@ -24,10 +24,10 @@ vlc:
     - dmm
     - misskey
     - niconico
-    - nintendo
     - pixiv
     - projectsekai
     - rakuten
+    - unext
   vltw:
     - 18comic
     - bahamut
@@ -35,14 +35,14 @@ vlc:
     - picacg
     - viu
   vlus:
+    - anthropic
     - ehentai
   vlworld:
     - geolocation-!cn
     - category-porn
   vlsystem:
-    - apple
-    - ubuntu
     - category-ntp
+    - apple
   vlstream:
     - disney
     - hbo
@@ -67,7 +67,7 @@ rex:
         - 4  ^\|?\|?(?:[a-z]+://)?\=i4\(?:$|\^|\$|:|/)  \1/32
 
   - url: https://cdn.jsdelivr.net/gh/gfwlist/gfwlist/gfwlist.txt
-    pre: [ b64 ]
+    pre: [b64]
     get:
       gfwlist:
         - d  ^\|?\|?(?:[a-z]+://)?\.?\=dn\(?:$|\^|\$|/)  .\1

@@ -7,17 +7,21 @@ def proxy(out) -> None:
             x + "\n"
             for x in [
                 "[custom]",
+                "custom_proxy_group=ON`select`[]DIRECT`[]REJECT",
                 #
                 "enable_rule_generator=true",
                 "overwrite_original_rules=true",
                 "ruleset=DIRECT,[]FINAL",
                 #
-                "custom_proxy_group=ON`select`[]DIRECT`[]REJECT",
+                "rename=^JMS-(\\d+)@c(\\d+)s1\\..*@C$2S1 US $1",
+                "rename=^JMS-(\\d+)@c(\\d+)s2\\..*@C$2S2 US $1",
+                "rename=^JMS-(\\d+)@c(\\d+)s3\\..*@C$2S3 US $1",
+                "rename=^JMS-(\\d+)@c(\\d+)s4\\..*@C$2S4 JP $1",
+                "rename=^JMS-(\\d+)@c(\\d+)s5\\..*@C$2S5 NL $1",
+                "rename=^JMS-(\\d+)@c(\\d+)s(\\d+)\\..*@C$2S$3 $1",
                 #
-                "rename=^(JMS-\\d+).(c\\d+s[123])\\..*@$1 $2 US",
-                "rename=^(JMS-\\d+).(c\\d+s4)\\..*@$1 $2 JP",
-                "rename=^(JMS-\\d+).(c\\d+s5)\\..*@$1 $2 NL",
-                "rename=^(JMS-\\d+).(c\\d+s\\d+)\\..*@$1 $2",
+                "add_emoji=true",
+                "remove_old_emoji=false",
                 #
                 "clash_rule_base=" + REMOTE_URI_NULL,
                 "loon_rule_base=" + REMOTE_URI_NULL,

@@ -7,17 +7,14 @@ tar:
 route:
   - id: cn
     node: { id: direct }
-    filter: [ { use: cn }, { use: system } ]
+    filter: [{ use: system }, { use: cn }]
   - id: tw
     node: { name: TW, type: test, list: =tw }
-    filter: [ { use: tw }, { use: stream } ]
+    filter: [{ use: tw }]
   - id: jp
     node: { name: JP, type: test, list: =jp }
-    filter: [ { use: jp } ]
+    filter: [{ use: jp }]
   - id: us
     node: { name: US, type: test, list: =us }
-    filter: [ { use: us } ]
-  - id: ww
-    node: { id: tw }
-    filter: [ { use: world }, { type: main } ]
+    filter: [{ use: us }, { use: stream }, { use: world }, { type: main }]
 node: []
