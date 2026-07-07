@@ -1,13 +1,12 @@
 # output list
 list:
   # id, list
-  world: [vlworld, gfwlist]
+  world: [rworld, vlworld, gfwlist]
+  system: [rsystem, vlsystem]
   cn: [r-cn, vlcn]
   jp: [r-jp, vljp]
   tw: [r-tw, vltw]
   us: [r-us, vlus]
-  system: [rsystem, vlsystem]
-  stream: [rstream, vlstream]
   block: [adguard, vlblock]
 
 # V2fly domain List Community
@@ -40,15 +39,14 @@ vlc:
   vlworld:
     - geolocation-!cn
     - category-porn
-  vlsystem:
-    - category-ntp
-    - apple
-  vlstream:
     - disney
     - hbo
     - hulu
     - netflix
     - primevideo
+  vlsystem:
+    - category-ntp
+    - apple
   vlblock:
     - category-ads
     - category-httpdns-cn

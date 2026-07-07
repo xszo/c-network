@@ -34,17 +34,6 @@ route:
       sort: 1
       emoji: 🏳️‍🌈
       sf: arrow.left.arrow.right.system
-  - id: stream
-    node:
-      type: static
-      name: Stream
-      list: [ -world, -direct, =node ]
-    filter:
-      - use: stream
-    icon:
-      sort: 1
-      emoji: 🏳️‍🌈
-      sf: arrow.left.arrow.right.system
 
   - id: cn
     node:

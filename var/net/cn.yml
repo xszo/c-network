@@ -16,5 +16,5 @@ route:
     filter: [{ use: jp }]
   - id: us
     node: { name: US, type: test, list: =us }
-    filter: [{ use: us }, { use: stream }, { use: world }, { type: main }]
+    filter: [{ use: us }, { use: world }, { type: main }]
 node: []
