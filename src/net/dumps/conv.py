@@ -24,13 +24,6 @@ def proxy(out) -> None:
                 "remove_old_emoji=false",
                 #
                 "clash_rule_base=" + REMOTE_URI_NULL,
-                "loon_rule_base=" + REMOTE_URI_NULL,
-                "mellow_rule_base=" + REMOTE_URI_NULL,
-                "quan_rule_base=" + REMOTE_URI_NULL,
-                "quanx_rule_base=" + REMOTE_URI_NULL,
-                "singbox_rule_base=" + REMOTE_URI_NULL,
-                "sssub_rule_base=" + REMOTE_URI_NULL,
-                "surfboard_rule_base=" + REMOTE_URI_NULL,
                 "surge_rule_base=" + REMOTE_URI_NULL,
             ]
         ]

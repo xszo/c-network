@@ -14,7 +14,7 @@ Code in `run`, `src/`, `var/` on <https://github.com/xszo/c-network>
 
 - `doc/`  *GNU GPL 3.0* & _CC BY-SA 4.0_  
   <https://github.com/xszo/c-network/wiki>
-- `out/rule/*-dn-*.txt` V2fly *MIT*  
+- `out/rule/*-dn-*.txt` V2fly Dlc *MIT*  
   <https://github.com/v2fly/domain-list-community>
 - `out/rule/world-dn-*.txt` GFWlist *GNU LGPL 2.1*  
   <https://github.com/gfwlist/gfwlist>
@@ -25,7 +25,7 @@ Code in `run`, `src/`, `var/` on <https://github.com/xszo/c-network>
 
 ## LICENSE
 
-Copyright (C) 2022-2024 Xelios Zukto
+Copyright (C) 2022-2026 Xelios Zukto
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
