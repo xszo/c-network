@@ -19,8 +19,7 @@ misc:
     # - https://8.8.8.8/dns-query
     - https://223.5.5.5/dns-query
     - https://223.6.6.6/dns-query
-    - https://1.12.12.12/dns-query
-    - https://120.53.53.53/dns-query
+    - https://doh.pub/dns-query
 # routing info
 route:
   - id: system

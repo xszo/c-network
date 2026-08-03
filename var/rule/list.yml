@@ -1,12 +1,14 @@
 # output list
 list:
   # id, list
-  world: [rworld, vlworld, gfwlist]
-  system: [rsystem, vlsystem]
   cn: [r-cn, vlcn]
   jp: [r-jp, vljp]
   tw: [r-tw, vltw]
   us: [r-us, vlus]
+
+  system: [r-system, vlsystem, -cn, -jp, -tw, -us]
+  world: [r-world, vlworld, gfwlist, -system, -cn, -jp, -tw, -us]
+
   block: [adguard, vlblock]
 
 # V2fly domain List Community
@@ -18,6 +20,7 @@ vlc:
   vljp:
     - 5ch
     - abema
+    - bushiroad
     - cygames
     - dlsite
     - dmm
@@ -27,6 +30,7 @@ vlc:
     - projectsekai
     - rakuten
     - unext
+    - yostar@!cn
   vltw:
     - 18comic
     - bahamut
@@ -40,8 +44,10 @@ vlc:
     - geolocation-!cn
     - category-porn
     - disney
+    - google
     - hbo
     - hulu
+    - microsoft
     - netflix
     - primevideo
   vlsystem:
