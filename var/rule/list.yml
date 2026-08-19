@@ -6,8 +6,8 @@ list:
   tw: [r-tw, vltw]
   us: [r-us, vlus]
 
-  system: [r-system, vlsystem, -cn, -jp, -tw, -us]
-  world: [r-world, vlworld, gfwlist, -system, -cn, -jp, -tw, -us]
+  system: [r-system, vlss, -cn, -jp, -tw, -us]
+  world: [r-world, vlww, -vlss, gfwlist, -cn, -jp, -tw, -us]
 
   block: [adguard, vlblock]
 
@@ -40,7 +40,7 @@ vlc:
   vlus:
     - anthropic
     - ehentai
-  vlworld:
+  vlww:
     - geolocation-!cn
     - category-porn
     - disney
@@ -50,8 +50,7 @@ vlc:
     - microsoft
     - netflix
     - primevideo
-  vlsystem:
-    - category-ntp
+  vlss:
     - apple
   vlblock:
     - category-ads

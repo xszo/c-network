@@ -2,19 +2,19 @@
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "python.analysis.typeCheckingMode": "standard",
-  "python.useEnvironmentsExtension": true,
   "python-envs.defaultEnvManager": "ms-python.python:poetry",
+  "python-envs.defaultPackageManager": "ms-python.python:poetry",
   "[python]": {
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.codeActionsOnSave": {
       "source.fixAll": "explicit",
       "source.organizeImports": "explicit"
-    },
-    "diffEditor.ignoreTrimWhitespace": false
+    }
   },
   "[yaml]": {
+    "diffEditor.ignoreTrimWhitespace": false,
     "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.codeActionsOnSave": { "source.fixAll": "explicit" },
-    "diffEditor.ignoreTrimWhitespace": false
+    "editor.codeActionsOnSave": { "source.fixAll": "explicit" }
   }
 }
