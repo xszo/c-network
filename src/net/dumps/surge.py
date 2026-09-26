@@ -63,7 +63,7 @@ def base(out, loc: dict) -> None:
         if item["type"] == "static":
             line += " = select"
         elif item["type"] == "test":
-            line += " = smart"
+            line += " = smart, policy-priority=\\[x8\\]:8"
         else:
             return
         if "list" in item:

@@ -1,7 +1,10 @@
 #!/bin/bash
-while getopts "aigc" opt; do case $opt in
-  a|i) python -m pip install poetry ;;&
-  a)   python -m poetry install --only main ;;
-  i)   python -m poetry sync; python -m poetry update ;;
-  esac; done;
+
+while getopts "aigc" opt
+  do case $opt in
+    a|i) python -m pip install poetry ;;&
+    a)   python -m poetry install --only main ;;
+    i)   python -m poetry sync ; python -m poetry update ;;
+    esac
+  done
 python -m poetry run python -m src.run "$@"
